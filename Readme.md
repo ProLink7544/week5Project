@@ -3,3 +3,4 @@ George: created the connectivity to database 'RACES' where I capured the above d
 Anastacia: Created the database schema to capture CRUD called cars.js..
 Martha: Deployed the app to render.
 Project Setup Instructions :do not delete or ammend without the our authorisation
+AUTHORS NAMES: Protus, Martha, George and Annastacia
