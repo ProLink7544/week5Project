@@ -3,10 +3,9 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const carsRoutes = require('./routes/cars');
-const indexRoutes = require('./routes/index');
+// const indexRoutes = require('./routes/start');
 
 // Variables
-// to replace with the correct login details the db.
 const databaseConn="mongodb+srv://pro:0723557337@carraceproject.0smm9nm.mongodb.net/test?retryWrites=true&w=majority";
 
 const port = process.env.PORT || 8700;
@@ -27,7 +26,7 @@ database.once('connected', () => {
 const app = express();
 
 app.use(express.json());
-app.use('/', indexRoutes);
+// app.use('/', indexRoutes);
 app.use('/cars', carsRoutes);
 
 app.listen(port, () => {

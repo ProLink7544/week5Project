@@ -3,20 +3,20 @@ const { boolean } = require('webidl-conversions');
 
 // Schema
 const raceSchema = new mongoose.Schema({
-    driverName: {
+    name: {
         required: true,
         type: String,
     },
-    vehicleType: {
+    vehicle: {
         required: true,
         type: String,
     },
-    vehicleNumber: {
+    number: {
         required: true,
         type: String,
     },
-    wonRaces: {
-        required: false,
+    wins: {
+        required: true,
         type: Number,
     },
 });

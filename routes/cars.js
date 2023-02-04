@@ -6,7 +6,7 @@ const router = express.Router();
 module.exports = router;
 
 // create a new record and save
-router.post('/', async (req, res) => {
+router.post('/new', async (req, res) => {
     const data = new Races({
         diverName: req.body.name,
         vehicleType: req.body.vehicle,
@@ -14,6 +14,7 @@ router.post('/', async (req, res) => {
         wonRaces: req.body.wins,
     });
     try {
+        console.log("trying to post")
         //insert a racing vehicle
         const savedData = await data.save();
         res.status(200).json(savedData);
@@ -23,11 +24,14 @@ router.post('/', async (req, res) => {
 });
 
 // Read a race data for particular race car
-router.get('/', async (req, res) => {
+router.get('/fetch', async (req, res) => {
+console.log("we are here")
     try {
+        console.log("trying to fecth")
         const data = await Races.find();
         res.status(200).json(data);
     } catch (error) {
+        console.log("error")
         res.status(404).json({ message: error.message });
     }
 });
