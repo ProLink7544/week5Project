@@ -1,5 +1,5 @@
 const express = require('express');
-const Races = require('../models/entities');
+const Races = require('....');
 
 const router = express.Router();
 
