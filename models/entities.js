@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const { boolean } = require('webidl-conversions');
 
 // Schema
 const raceSchema = new mongoose.Schema({
@@ -21,4 +20,4 @@ const raceSchema = new mongoose.Schema({
     },
 });
 
-module.exports = mongoose.model('races', raceSchema);
+module.exports = mongoose.model('Races', raceSchema);
