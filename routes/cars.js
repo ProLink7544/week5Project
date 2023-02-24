@@ -1,13 +1,11 @@
 const express = require('express');
-const Races = require('....');
+const raceSchema = require('./../models/entities');
 
 const router = express.Router();
 
-module.exports = router;
-
 // create a new record and save
-router.post('/new', async (req, res) => {
-    const data = new Races({
+router.post('/', async (req, res) => {
+    const data = new raceSchema({
         name: req.body.name,
         vehicle: req.body.vehicle,
         number: req.body.number,
@@ -24,11 +22,11 @@ router.post('/new', async (req, res) => {
 });
 
 // Read a race data for particular race car
-router.get('/fetch', async (req, res) => {
+router.get('/', async (req, res) => {
 console.log("we are here")
     try {
         console.log("trying to fecth")
-        const data = await Races.find();
+        const data = await raceSchema.find();
         console.log(data)
         res.status(200).json(data);
     } catch (error) {
@@ -37,13 +35,13 @@ console.log("we are here")
     }
 });
 
-// Update vehicle won races and current driver
+// Update vehicle won raceSchema and current driver
 router.patch('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const updatedData = req.body;
-
-        const data = await Races.findByIdAndUpdate(id, updatedData, { new: true });
+        
+        const data = await raceSchema.findByIdAndUpdate(id, updatedData, { new: true });
         res.status(200).json(data);
     } catch (error) {
         res.status(404).json({ message: error.message });
@@ -53,10 +51,12 @@ router.patch('/:id', async (req, res) => {
 router.delete('/id', async (req, res) => {
     try {
         const id = req.params.id;
-
-        const data = await Races.findByIdAndDelete(id);
+        
+        const data = await raceSchema.findByIdAndDelete(id);
         res.status(200).json({ message: `The Race named ${data.name} has been deleted` });
     } catch (error) {
         res.status(404).json({ message: error.message });
     }
 });
+
+module.exports = router;
