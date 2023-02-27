@@ -1,11 +1,11 @@
 require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
-
+const app = express();
 const indexRoutes = require('./routes/index');
 const carRoutes = require('./routes/cars');
 
-const connectionString = process.env.MONGO_URL;
+const connectionString = process.env.DATABASE_URL;
 const PORT = process.env.PORT;
 
 mongoose.connect(connectionString);
@@ -19,10 +19,10 @@ database.once('connected', () => {
   console.log('Database connected');
 });
 
-const app = express();
 
-app.use('/', indexRoutes);
-app.use('/cars', carRoutes);
+app.use(express.json());
+
+app.use("/cars", carRoutes);
 
 app.listen(PORT, () => {
     console.log('Server is running');

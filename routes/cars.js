@@ -4,7 +4,7 @@ const raceSchema = require('./../models/entities');
 const router = express.Router();
 
 // create a new record and save
-router.post('/', async (req, res) => {
+router.post('/new', async (req, res) => {
     const data = new raceSchema({
         name: req.body.name,
         vehicle: req.body.vehicle,
@@ -22,7 +22,7 @@ router.post('/', async (req, res) => {
 });
 
 // Read a race data for particular race car
-router.get('/', async (req, res) => {
+router.get('/fetch', async (req, res) => {
 console.log("we are here")
     try {
         console.log("trying to fecth")
