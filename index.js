@@ -22,6 +22,7 @@ database.once('connected', () => {
 
 app.use(express.json());
 
+app.use("/", indexRoutes);
 app.use("/cars", carRoutes);
 
 app.listen(PORT, () => {
