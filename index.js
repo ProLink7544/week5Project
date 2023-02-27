@@ -7,7 +7,7 @@ const carRoutes = require('./routes/cars');
 
 const connectionString = process.env.DATABASE_URL;
 const PORT = process.env.PORT;
-
+mongoose.set('strictQuery', true);
 mongoose.connect(connectionString);
 const database = mongoose.connection;
 
