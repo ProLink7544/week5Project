@@ -2,7 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();
-const indexRoutes = require('./routes/index');
+const indexRoutes = require('./routes/main');
 const carRoutes = require('./routes/cars');
 
 const connectionString = process.env.DATABASE_URL;
