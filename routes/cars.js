@@ -1,9 +1,6 @@
 const express = require('express');
 const raceSchema = require('./../models/entities');
-
 const router = express.Router();
-
-// create a new record and save
 router.post('/new', async (req, res) => {
     const data = new raceSchema({
         name: req.body.name,
